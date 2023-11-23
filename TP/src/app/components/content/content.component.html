@@ -6,62 +6,8 @@
     </div>
 
     <!--
-        @Input products - products belonging to selected shop
+        @Input products - products belonging to currently selected shop
     -->
-    <div *ngIf="products.length > 0" class="product-navigation">
-
-        <!--
-            public sections - available sections for parsed products
-            (updated on products change)
-        -->
-        <div *ngFor="let section of sections" class="section">
-
-            <div class="disclaimer">
-                <p class="main">{{ section === "snacking" ?
-                    "Une petite faim?" :
-                    "A la maison, comme au restaurant"
-                }}</p>
-                <p class="alt">{{ section === "snacking" ?
-                    "N'attendez plus, régalez vous avec nos produits prêts à consommer!" :
-                    "Retrouvez, chez vous, la qualité du restaurant et le comfort de la maison"
-                }}</p>
-            </div>
-
-            <!--
-                public tags - available tags for parsed products
-                (updated on products change)
-            -->
-            <div *ngFor="let tag_map of tags | tagsFilter:products:section | keyvalue" class="products">
-
-                <p [ngSwitch]="tag_map.key" class="disclaimer">
-                    <span *ngSwitchCase="'starter'">{{ tag_map.value < 2 ? "Notre Entrée" : "Nos Entrées" }}</span>
-                    <span *ngSwitchCase="'main'">{{ tag_map.value < 2 ? "Notre Plat" : "Nos Plats" }}</span>
-                    <span *ngSwitchCase="'dessert'">{{ tag_map.value < 2 ? "Notre Dessert" : "Nos Desserts" }}</span>
-                    <span *ngSwitchCase="'cold_cut'">{{ tag_map.value < 2 ? "Notre Charcuterie" : "Nos Charcuteries" }}</span>
-                    <span *ngSwitchCase="'meat'">{{ tag_map.value < 2 ? "Notre Viande" : "Nos Viandes" }}</span>
-                    <span *ngSwitchCase="'meal'">{{ tag_map.value < 2 ? "Notre Plat" : "Nos Plats" }}</span>
-                    <span *ngSwitchDefault>default</span>
-                </p>
-                
-                <div class="grid">
-
-                    <!--
-                        @Input products - products belonging to selected shop
-                    -->
-                    <div *ngFor="let product of products | productsFilter:section:tag_map.key" class="single-product">
-                        <img class="thumbnail" alt="thumbnail for ailerons" src="../../../assets/img/product/{{product.img}}"/>
-                        <p class="name">{{product.name}}</p>
-                        <p [innerHTML]="product.description" class="description"></p>
-                        <p class="unit-price">{{product.unit_price | currency:'EUR'}}</p>
-                        <button class="add-to-cart">Ajouter au panier</button>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
+    <app-product-navigation [products]="_products" [sections]="sections" [tags]="tags"></app-product-navigation>
 
 </div>

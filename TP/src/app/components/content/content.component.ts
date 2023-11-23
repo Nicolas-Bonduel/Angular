@@ -10,8 +10,8 @@ import { Product } from '../../classes/product';
 export class ContentComponent {
 
   /* --- @Inputs --- */
-  private _products: Product[] = [];
-  @Input()
+  public _products: Product[] = [];
+  @Input()                                // from <app>: list of products belonging to currently selected shop
     get products(): Product[] {
       return this._products;
     }
@@ -20,9 +20,9 @@ export class ContentComponent {
       this.updatePublicData();
     }
 
-  /* --- Public --- */
-  public sections: string[] = []; // available sections for parsed products (updated on products change)
-  public tags: string[] = [];     // available tags for parsed products (updated on products change)
+  /* --- @Input Variables --- */
+  public sections: string[] = []; // in <app-product-navigation> : available sections for parsed products (updated on products change)
+  public tags: string[] = [];     // in <app-product-navigation> : available tags for parsed products (updated on products change)
 
 
   /* --- Init --- */

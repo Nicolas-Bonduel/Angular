@@ -14,8 +14,8 @@ export class AppComponent {
   private products: Product[] = PRODUCTS;
 
   /* --- @Input Variables --- */
-  public shops: string[] = [];                    // in <app-header>: list of available shops for parsed products
-  public selected_shop_products: Product[] = [];  // in <app-content>: list of products belonging to currently selected shop
+  public shops: string[] = [];                    // in <app-header>  : list of available shops for parsed products
+  public selected_shop_products: Product[] = [];  // in <app-content> : list of products belonging to currently selected shop
 
 
   /* --- Init --- */

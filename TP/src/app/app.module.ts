@@ -10,6 +10,8 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import { TagsFilterPipe } from './pipes/tags-filter.pipe';
+import { ProductNavigationComponent } from './components/content/product-navigation/product-navigation/product-navigation.component';
+import { SingleProductComponent } from './components/content/single-product/single-product/single-product.component';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -20,6 +22,8 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     ContentComponent,
     ProductsFilterPipe,
     TagsFilterPipe,
+    ProductNavigationComponent,
+    SingleProductComponent,
   ],
   imports: [
     BrowserModule,

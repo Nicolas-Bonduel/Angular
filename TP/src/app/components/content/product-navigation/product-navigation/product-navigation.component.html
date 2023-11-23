@@ -1,0 +1,53 @@
+
+<!--
+    @Input products - products belonging to selected shop
+-->
+<div *ngIf="products.length > 0" class="product-navigation">
+
+    <!--
+        @Input sections - available sections for parsed products
+        (updated on products change)
+    -->
+    <div *ngFor="let section of sections" class="section">
+
+        <div class="disclaimer">
+            <p class="main">{{ section === "snacking" ?
+                "Une petite faim?" :
+                "A la maison, comme au restaurant"
+            }}</p>
+            <p class="alt">{{ section === "snacking" ?
+                "N'attendez plus, régalez vous avec nos produits prêts à consommer!" :
+                "Retrouvez, chez vous, la qualité du restaurant et le comfort de la maison"
+            }}</p>
+        </div>
+
+        <!--
+            @Input tags - available tags for parsed products
+            (updated on products change)
+        -->
+        <div *ngFor="let tag_map of tags | tagsFilter:products:section | keyvalue" class="products">
+
+            <p [ngSwitch]="tag_map.key" class="disclaimer">
+                <span *ngSwitchCase="'starter'">{{ tag_map.value < 2 ? "Notre Entrée" : "Nos Entrées" }}</span>
+                <span *ngSwitchCase="'main'">{{ tag_map.value < 2 ? "Notre Plat" : "Nos Plats" }}</span>
+                <span *ngSwitchCase="'dessert'">{{ tag_map.value < 2 ? "Notre Dessert" : "Nos Desserts" }}</span>
+                <span *ngSwitchCase="'cold_cut'">{{ tag_map.value < 2 ? "Notre Charcuterie" : "Nos Charcuteries" }}</span>
+                <span *ngSwitchCase="'meat'">{{ tag_map.value < 2 ? "Notre Viande" : "Nos Viandes" }}</span>
+                <span *ngSwitchCase="'meal'">{{ tag_map.value < 2 ? "Notre Plat" : "Nos Plats" }}</span>
+                <span *ngSwitchDefault>default</span>
+            </p>
+            
+            <div class="grid">
+
+                <!--
+                    @Input products - products belonging to selected shop
+                -->
+                <app-single-product *ngFor="let product of products | productsFilter:section:tag_map.key" [product]="product"></app-single-product>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
