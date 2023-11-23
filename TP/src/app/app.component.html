@@ -1,0 +1,11 @@
+
+<!--
+    @Input shops - available shops to display in shop selection
+    @Output selectedShopChange - newly selected shop
+-->
+<app-header [shops]="shops" (selectedShopChange)="onShopChange($event)"></app-header>
+
+<!--
+    @Input products - products belonging to currently selected shop
+-->
+<app-content [products]="selected_shop_products"></app-content>

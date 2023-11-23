@@ -1,0 +1,76 @@
+#header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 10vh;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    box-shadow: 1px 5px 15px #0000003c;
+    z-index: 999;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#header > .logo {
+    height: 100%;
+    margin-left: 2%;
+}
+
+.shop-select {
+    display: flex;
+    align-items: center;
+}
+
+.shop-select > label {
+    font-size: 1.3vw;
+    white-space: nowrap;
+    margin-right: 3%;
+}
+
+.shop-select > select {
+    width: auto;
+    color: #ff9312;
+    font-size: 1.3vw;
+    font-weight: 400;
+    border: 2px solid #ff9312;
+    border-radius: 20px;
+    padding: .5%;
+}
+.shop-select > select:focus-visible {
+    outline: none;
+}
+
+.shop-select > select > option {
+
+}
+
+#cart {
+    position: relative;
+    height: 60%;
+    margin-right: 2%;
+    padding: .5%;
+    border: 1px solid grey;
+    background-color: transparent;
+}
+
+#cart > .logo {
+    height: 100%;
+}
+
+#cart > .cart-items-count {
+    position: absolute;
+    margin-top: 0;
+    margin-bottom: 0;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    font-size: 2vh;
+    width: 3vh;
+    line-height: 3vh;
+    font-weight: bold;
+    color: white;
+    background-color: #cb4335;
+    border-radius: 50%;
+}

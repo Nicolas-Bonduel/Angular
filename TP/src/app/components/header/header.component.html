@@ -1,0 +1,24 @@
+<div id="header">
+
+    <img class="logo" alt="header logo" src="../../assets/img/logo.png"/>
+
+    <div class="shop-select">
+        <label for="pickup-shop" class="pickup-shop-label">Etablissement de retrait :</label>
+        <!--
+            @Output selectedShopChange - newly selected shop : fired from onShopChange()
+        -->
+        <select name="pickup-shop" id="pickup-shop" (change)="onShopChange($event)">
+            <option selected disabled hidden>Choisissez un restaurant</option>
+            <!--
+                @Input shops - available shops
+            -->
+            <option *ngFor="let shop of shops" value="{{ shop }}">Le Barbier Qui Fume {{ shop }}</option>
+        </select>
+    </div>
+
+    <button id="cart">
+        <img class="logo" alt="cart logo" src="../../assets/img/shopping-bag-icon.jpg"/>
+        <p class="cart-items-count">0</p>
+    </button>
+
+</div>
