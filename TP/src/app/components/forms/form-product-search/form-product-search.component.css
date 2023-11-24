@@ -1,6 +1,11 @@
 form {
     display: flex;
     align-items: center;
+    justify-content: center;
+    width: 90vw;
+    border-bottom: 2px dashed gray;
+    padding-bottom: 3vh;
+    margin-bottom: 6vh;
 }
 
 label {
