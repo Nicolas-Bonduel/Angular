@@ -9,7 +9,7 @@ export class TagsFilterPipe implements PipeTransform {
   /**
    * Filters given tags to remove those that host no product in current section
    * Also converts it to a Map to add the amount of products that match each tag (for conditionnal plural)
-   * used in <app-content>
+   * used in <app-product-navigation>
    * 
    * @param tags      - given tags      (in context: all available tags for all products)
    * @param products  - given products  (in context: all products belonging to given section)

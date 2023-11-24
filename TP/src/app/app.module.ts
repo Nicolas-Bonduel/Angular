@@ -17,6 +17,9 @@ import { MinicartItemComponent } from './components/header/minicart/minicart-ite
 import { MinicartItemsComponent } from './components/header/minicart-items/minicart-items.component';
 import { CartItemsTotalPipe } from './pipes/cart-items-total.pipe';
 import { CartItemsFilterPipe } from './pipes/cart-items-filter.pipe';
+import { FormProductSearchComponent } from './components/forms/form-product-search/form-product-search.component';
+import { FormsModule } from '@angular/forms';
+import { SectionsFilterPipe } from './pipes/sections-filter.pipe';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -34,10 +37,13 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     MinicartItemsComponent,
     CartItemsTotalPipe,
     CartItemsFilterPipe,
+    FormProductSearchComponent,
+    SectionsFilterPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [{
     provide: LOCALE_ID,

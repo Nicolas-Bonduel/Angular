@@ -5,10 +5,15 @@
 <div *ngIf="products.length > 0" class="product-navigation">
 
     <!--
+        @Output input_change - notifier of change in input
+    -->
+    <app-form-product-search (input_change)="updatePublicData()" ></app-form-product-search>
+
+    <!--
         @Input sections - available sections for parsed products
         (updated on products change)
     -->
-    <div *ngFor="let section of sections" class="section">
+    <div *ngFor="let section of sections | sectionsFilter:products_in_search" class="section">
 
         <div class="disclaimer">
             <p class="main">{{ section === "snacking" ?
@@ -25,7 +30,7 @@
             @Input tags - available tags for parsed products
             (updated on products change)
         -->
-        <div *ngFor="let tag_map of tags | tagsFilter:products:section | keyvalue" class="products">
+        <div *ngFor="let tag_map of tags | tagsFilter:products_in_search:section | keyvalue" class="products">
 
             <p [ngSwitch]="tag_map.key" class="disclaimer">
                 <span *ngSwitchCase="'starter'">{{ tag_map.value < 2 ? "Notre Entrée" : "Nos Entrées" }}</span>
@@ -42,7 +47,7 @@
                 <!--
                     @Input products - products belonging to selected shop
                 -->
-                <app-single-product *ngFor="let product of products | productsFilter:section:tag_map.key" [product]="product"></app-single-product>
+                <app-single-product *ngFor="let product of products_in_search | productsFilter:section:tag_map.key" [product]="product"></app-single-product>
 
             </div>
 

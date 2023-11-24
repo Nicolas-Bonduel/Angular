@@ -1,0 +1,7 @@
+
+<form #productSearchForm="ngForm" class="form-product-search">
+
+    <label for="text">Cherchez un produit :</label>
+    <input  [(ngModel)]="search_string" (input)="onInputchange($event)" name="search" id="text" type="text" />
+
+</form>

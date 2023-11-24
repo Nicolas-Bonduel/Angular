@@ -39,6 +39,7 @@ export class ContentComponent {
     this.sections = [];
     this.tags = [];
 
+    // assign public data
     let parsed_tags: string[];
     for (let i = 0; i < this._products.length; i++) {
       parsed_tags = this.get_product_tags(this.products[i]);
