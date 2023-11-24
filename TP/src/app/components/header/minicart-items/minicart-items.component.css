@@ -1,0 +1,31 @@
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content > .subtotal {
+    font-size: 1.4vw;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: #666666;
+    padding-bottom: 4vh;
+    border-bottom: 1px solid #cccccc;
+}
+
+.content > .checkout-button {
+    width: 80%;
+    padding: 0;
+    font-size: 1.4vw;
+    color: #f3a649;
+    border: 1px solid #f3a649;
+    background-color: transparent;
+    transition: color ease .4s, background-color ease .4s;
+}
+.content > .checkout-button:hover {
+    color: white;
+    background-color: #f3a649;
+}

@@ -3,22 +3,33 @@
     <img class="logo" alt="header logo" src="../../assets/img/logo.png"/>
 
     <div class="shop-select">
+
         <label for="pickup-shop" class="pickup-shop-label">Etablissement de retrait :</label>
         <!--
             @Output selectedShopChange - newly selected shop : fired from onShopChange()
         -->
         <select name="pickup-shop" id="pickup-shop" (change)="onShopChange($event)">
             <option selected disabled hidden>Choisissez un restaurant</option>
+
             <!--
                 @Input shops - available shops
             -->
             <option *ngFor="let shop of shops" value="{{ shop }}">Le Barbier Qui Fume {{ shop }}</option>
+
         </select>
+
     </div>
 
-    <button id="cart">
+    <button (click)="toggle_minicart()" id="cart-nav">
+
         <img class="logo" alt="cart logo" src="../../assets/img/shopping-bag-icon.jpg"/>
-        <p class="cart-items-count">0</p>
+        <p class="cart-items-count">{{ (cart_items | cartItemsFilter:selected_shop).length }}</p>
+
     </button>
+
+    <!--
+        @Input cart_items - items in cart
+    -->
+    <app-minicart [shop]="selected_shop" [cart_items]="cart_items"></app-minicart>
 
 </div>

@@ -12,6 +12,11 @@ import localeFrExtra from '@angular/common/locales/extra/fr';
 import { TagsFilterPipe } from './pipes/tags-filter.pipe';
 import { ProductNavigationComponent } from './components/content/product-navigation/product-navigation/product-navigation.component';
 import { SingleProductComponent } from './components/content/single-product/single-product/single-product.component';
+import { MinicartComponent } from './components/header/minicart/minicart.component';
+import { MinicartItemComponent } from './components/header/minicart/minicart-item/minicart-item.component';
+import { MinicartItemsComponent } from './components/header/minicart-items/minicart-items.component';
+import { CartItemsTotalPipe } from './pipes/cart-items-total.pipe';
+import { CartItemsFilterPipe } from './pipes/cart-items-filter.pipe';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -24,6 +29,11 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     TagsFilterPipe,
     ProductNavigationComponent,
     SingleProductComponent,
+    MinicartComponent,
+    MinicartItemComponent,
+    MinicartItemsComponent,
+    CartItemsTotalPipe,
+    CartItemsFilterPipe,
   ],
   imports: [
     BrowserModule,

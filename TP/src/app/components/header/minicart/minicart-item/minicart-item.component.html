@@ -1,0 +1,25 @@
+
+<!--
+    @Input item - cart item to draw
+-->
+<div *ngIf="item" class="content">
+
+    <img class="thumbnail" alt="thumbnail for {{item.product_ref}}" src="../../../../../assets/img/product/{{item.product_thumbnail}}"/>
+
+    <div class="column">
+
+        <p class="ref">{{ item.product_ref }}</p>
+
+        <div class="row">
+
+            <p class="amount">{{ item.quantity }} x {{ item.unit_price | currency:'EUR' }}</p>
+
+            <button (click)="remove_from_cart(item)" class="remove">
+                <img alt="remove cart item button" src="../../../../../assets/img/close-icon2.png"/>
+            </button>
+
+        </div>
+
+    </div>
+
+</div>

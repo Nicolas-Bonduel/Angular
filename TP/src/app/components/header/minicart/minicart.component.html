@@ -1,0 +1,35 @@
+
+<div #minicart id="minicart">
+
+    <button (click)="close_minicart()" class="close-button">
+        <img src="../../../../assets/img/close-icon.png" alt="close minicart button">
+    </button>
+
+    <div class="content">
+
+        <!--
+            @Input shop - currently selected shop
+        -->
+        <p *ngIf="shop === ''" class="no-shop-selected">
+            Votre panier est lié à l'établissement de retrait.<br>
+            Veuillez sélectionner votre établissement de retrait.
+        </p>
+
+         <!--
+            @Input shop         - currently selected shop
+            @Input cart_items   - items in cart
+        -->
+        <p *ngIf="shop !== '' && !(cart_items | cartItemsFilter:shop).length" class="cart-is-empty">
+            Votre panier est vide
+        </p>
+
+        <!--
+            @Input shop         - currently selected shop
+            @Input cart_items   - items in cart
+            @Input items        - items in cart and assigned to selected shop
+        -->
+        <app-minicart-items *ngIf="shop !== '' && (cart_items | cartItemsFilter:shop).length" [items]="cart_items | cartItemsFilter:shop"></app-minicart-items>
+
+    </div>
+
+</div>

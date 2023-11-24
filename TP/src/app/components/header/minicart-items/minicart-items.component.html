@@ -1,0 +1,14 @@
+
+<div class="content">
+
+    <!--
+        @Input items    - items in cart and assigned to currently selected shop
+        @Input item     - item to draw
+    -->
+    <app-minicart-item *ngFor="let item of items" [item]="item"></app-minicart-item>
+
+    <p class="subtotal">Sous-total : {{items | cartItemsTotal | currency:'EUR'}}</p>
+
+    <button class="checkout-button">Valider la commande</button>
+
+</div>

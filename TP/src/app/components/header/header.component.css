@@ -10,7 +10,6 @@
     background-color: white;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 #header > .logo {
@@ -19,6 +18,8 @@
 }
 
 .shop-select {
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     align-items: center;
 }
@@ -46,7 +47,7 @@
 
 }
 
-#cart {
+#cart-nav {
     position: relative;
     height: 60%;
     margin-right: 2%;
@@ -55,11 +56,11 @@
     background-color: transparent;
 }
 
-#cart > .logo {
+#cart-nav > .logo {
     height: 100%;
 }
 
-#cart > .cart-items-count {
+#cart-nav > .cart-items-count {
     position: absolute;
     margin-top: 0;
     margin-bottom: 0;

@@ -7,5 +7,5 @@
     <p class="name">{{product.name}}</p>
     <p [innerHTML]="product.description" class="description"></p>
     <p class="unit-price">{{product.unit_price | currency:'EUR'}}</p>
-    <button class="add-to-cart">Ajouter au panier</button>
+    <button (click)="add_to_cart(product)" class="add-to-cart">Ajouter au panier</button>
 </div>

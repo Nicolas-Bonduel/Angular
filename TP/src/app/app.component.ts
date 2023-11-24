@@ -20,6 +20,7 @@ export class AppComponent {
 
   /* --- Init --- */
   constructor() {
+    
     // Parses product data
     let parsed_product: Product;
     for (let i = 0; i < this.products.length; i++) {
@@ -32,8 +33,6 @@ export class AppComponent {
         this.shops.push(parsed_product.shop); 
     }
 
-    // todo remove once testing is over
-    this.onShopChange('Vieux-Lille');
   }
 
   /* --- @Output Listeners --- */
