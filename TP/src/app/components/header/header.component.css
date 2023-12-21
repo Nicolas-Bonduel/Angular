@@ -47,6 +47,26 @@
 
 }
 
+.navigation {
+    display: flex;
+    gap: 10%;
+    font-size: 1.1vw;
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: 5%;
+}
+
+.navigation > li {
+    white-space: nowrap;
+}
+
+.navigation > li > a {
+    text-decoration: none;
+}
+.navigation > li > a.active {
+    color: #ff9312;
+}
+
 #cart-nav {
     position: relative;
     height: 60%;

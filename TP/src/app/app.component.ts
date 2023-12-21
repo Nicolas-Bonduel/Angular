@@ -3,6 +3,8 @@ import { Component } from '@angular/core';
 import { Product } from './classes/product';
 import { PRODUCTS } from '../assets/products';
 
+import { ProductsService } from './services/products.service';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -19,7 +21,7 @@ export class AppComponent {
 
 
   /* --- Init --- */
-  constructor() {
+  constructor(private productService: ProductsService) {
     
     // Parses product data
     let parsed_product: Product;
@@ -54,6 +56,8 @@ export class AppComponent {
       if (product.shop === shop)
         this.selected_shop_products.push(product);
     });
+
+    this.productService.setProductsInShop(this.selected_shop_products);
   }
 
 }

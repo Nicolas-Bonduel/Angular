@@ -2,12 +2,14 @@ import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/cor
 
 import { Product } from '../../classes/product';
 
+import { ProductsService } from '../../services/products.service';
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
   styleUrl: './content.component.css'
 })
-export class ContentComponent {
+export class ContentComponent implements OnInit {
 
   /* --- @Inputs --- */
   public _products: Product[] = [];
@@ -26,8 +28,14 @@ export class ContentComponent {
 
 
   /* --- Init --- */
-  constructor() {
+  constructor(private productService: ProductsService) {
     
+  }
+  ngOnInit(): void {
+    this.productService.productsInShop$.subscribe(products => {
+      this._products = products;
+      this.updatePublicData();
+    });
   }
 
 

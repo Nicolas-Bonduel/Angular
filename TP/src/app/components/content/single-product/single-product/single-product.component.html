@@ -3,7 +3,7 @@
     @Input product - product to display in card
 -->
 <div *ngIf="product" class="single-product">
-    <img class="thumbnail" alt="thumbnail for {{product.name}}" src="../../../assets/img/product/{{product.img}}"/>
+    <img class="thumbnail" alt="thumbnail for {{product.name}}" src="./assets/img/product/{{product.img}}"/>
     <p class="name">{{product.name}}</p>
     <p [innerHTML]="product.description" class="description"></p>
     <p class="unit-price">{{product.unit_price | currency:'EUR'}}</p>
