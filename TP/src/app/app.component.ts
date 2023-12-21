@@ -13,7 +13,7 @@ import { ProductsService } from './services/products.service';
 export class AppComponent {
 
   /* --- Dataset : List of products with attributes --- */
-  private products: Product[] = PRODUCTS;
+  private products: Product[];// = PRODUCTS;
 
   /* --- @Input Variables --- */
   public shops: string[] = [];                    // in <app-header>  : list of available shops for parsed products
@@ -22,9 +22,26 @@ export class AppComponent {
 
   /* --- Init --- */
   constructor(private productService: ProductsService) {
+
+    this.products = [];
+
+    productService.get_products().subscribe((products) => {
+      this.products = products;
+
+      let parsed_product: Product;
+      for (let i = 0; i < this.products.length; i++) {
+        parsed_product = this.products[i];
+        if (parsed_product.shop === "")
+          continue;
+
+        // registers available shops
+        if (!this.shops.includes(parsed_product.shop))
+          this.shops.push(parsed_product.shop); 
+      }
+    });
     
     // Parses product data
-    let parsed_product: Product;
+    /*let parsed_product: Product;
     for (let i = 0; i < this.products.length; i++) {
       parsed_product = this.products[i];
       if (parsed_product.shop === "")
@@ -33,7 +50,7 @@ export class AppComponent {
       // registers available shops
       if (!this.shops.includes(parsed_product.shop))
         this.shops.push(parsed_product.shop); 
-    }
+    }*/
 
   }
 
