@@ -23,6 +23,12 @@
                 <div *ngIf="form_login.get('user')?.errors?.['specialChars']" class="error">
                     <p>Ne peut pas contenir de caractères spéciaux</p>
                 </div>
+                <div *ngIf="asyncValidationIsTrigerred(form_login) && form_login.get('user')?.errors?.['usernameExists']" class="error">
+                    <p>Nom d'utilisateur déjà pris</p>
+                </div>
+                <div *ngIf="asyncValidationIsTrigerred(form_login) && !form_login.get('user')?.errors?.['usernameExists']" class="valid">
+                    <p>Nom d'utilisateur disponible</p>
+                </div>
             </div>
 
             <div class="password">

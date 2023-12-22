@@ -35,14 +35,17 @@
     
 }
 
-.signin > form > .username > .error , .signin > form > .password > .error {
+.signin > form > .username > .error , .signin > form > .username > .valid , .signin > form > .password > .error {
     margin-left: 5%;
     font-size: 1.1vw;
     font-style: italic;
     color: red;
 }
+.signin > form > .username > .valid {
+    color: green;
+}
 
-.signin > form > .username > .error > p , .signin > form > .password > .error > p {
+.signin > form > .username > .error > p , .signin > form > .username > .valid > p , .signin > form > .password > .error > p {
     margin: 0;
 }
 

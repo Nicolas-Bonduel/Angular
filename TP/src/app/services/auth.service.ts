@@ -32,4 +32,8 @@ export class AuthService {
     return this.http.post('http://localhost:8000/login', {user, password}, { withCredentials: true });
   }
 
+  public checkAvailableUsername(username: string) {
+    return this.http.post('http://localhost:8000/usernameIsAvailable', {username});
+  }
+
 }
