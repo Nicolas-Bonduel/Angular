@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 
@@ -20,10 +20,25 @@ export class LoginComponent {
     this.authService.isLoggedIn().subscribe((isLoggedIn) => this.isLoggedIn = isLoggedIn);
 
     this.form_login = new FormGroup({
-      user: new FormControl('', [Validators.required]),
+      user: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(16),
+        this.noBlankCharsValidator()
+      ]),
       password: new FormControl('', [Validators.required])
     });
   
+  }
+
+  private noBlankCharsValidator() : ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (!value)
+        return null;
+
+      return (/\s/).test(value) ? { blankChars: true } : null;
+    }
   }
 
   public signin(): void {

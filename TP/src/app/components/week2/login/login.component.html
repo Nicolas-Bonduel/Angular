@@ -6,11 +6,24 @@
         <form [formGroup]="form_login" (ngSubmit)="signin()">
 
             <div class="username">
+                <div *ngIf="form_login.get('user')?.invalid">
                 <label for="username">Utilisateur</label>
                 <input formControlName="user" type="text" id="username" required>
-                <div *ngIf="form_login.get('user')?.errors" class="error">
+                <div *ngIf="form_login.get('user').invalid && form_login.get('user')?.errors.required" class="error">
                     <p>Champ requis</p>
+                </div></div>
+                <!--<div *ngIf="form_login.get('user')?.errors && form_login.get('user')?.errors.minLength" class="error">
+                    <p>Minimum 4 caractères</p>
                 </div>
+                <div *ngIf="form_login.get('user')?.errors && form_login.get('user')?.errors.maxLength" class="error">
+                    <p>Maximum 16 caractères</p>
+                </div>
+                <div *ngIf="form_login.get('user')?.errors && form_login.get('user')?.errors.blankChars" class="error">
+                    <p>Ne peut pas contenir d'espace</p>
+                </div>-->
+                <!--<div *ngIf="form_login.get('user')?.errors" class="error">
+                    <p>Ne peut pas contenir de caractères spéciaux/p>
+                </div>-->
             </div>
 
             <div class="password">
