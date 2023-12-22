@@ -23,6 +23,7 @@ import { FormProductSearchComponent } from './components/forms/form-product-sear
 import { FormsModule } from '@angular/forms';
 import { SectionsFilterPipe } from './pipes/sections-filter.pipe';
 import { ContentWeek2Component } from './components/week2/content-week2.component';
+import { LoginComponent } from './components/week2/login/login.component';
 
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
@@ -42,7 +43,8 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     CartItemsFilterPipe,
     FormProductSearchComponent,
     SectionsFilterPipe,
-    ContentWeek2Component
+    ContentWeek2Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

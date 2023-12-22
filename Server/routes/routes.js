@@ -47,7 +47,7 @@ routes.post('/login', (request, response) => {
             subject: user,
             expiresIn: "1h"
         });
-        response.cookie("signin-token", token, {maxAge: 1 * 60 * 60 * 1000});
+        response.cookie("signin_token", token, {maxAge: 1 * 60 * 60 * 1000});
         response.status(200).json({message: "user logged in"})
     }
     catch (err) {

@@ -2,6 +2,7 @@ import express from "express";
 import { connect } from "./mongoose/db_connect.js";
 import routes from "./routes/routes.js";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 import { Products } from "./models/Product.js";
 import { PRODUCTS } from "./mock/products.js";
@@ -12,8 +13,10 @@ const PORT = 8000;
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: "http://localhost:4200"
+    origin: "http://localhost:4200",
+    credentials: true
 }));
+app.use(cookieParser());
 connect();
 
 

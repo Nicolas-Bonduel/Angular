@@ -3,9 +3,10 @@ import jwt from 'jsonwebtoken';
 export const SECRET = "Shhhh! Don't tell anyone!";
 
 export const checkToken = (request, response, next) => {
-    const token = request.cookies.token;
-    if (!token)
+    const token = request.cookies.signin_token;
+    if (!token) {
         return response.status(401).json({message: 'Unauthorized'});
+    }
 
     try {
         request.verified = jwt.verify(token, SECRET);

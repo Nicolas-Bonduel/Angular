@@ -1,0 +1,71 @@
+.content {
+    margin-top: calc(10vh + 10px + 1%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1%;
+    border: 1px solid #ff9312;
+    font-size: 1.3vw;
+}
+
+.signin > form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+}
+
+.signin > form > .username , .signin > form > .password {
+    display: flex;
+    flex-direction: column;
+}
+
+.signin > form > .username > label , .signin > form > .password > label {
+    
+}
+
+.signin > form > .username > input , .signin > form > .password > input {
+    
+}
+
+.signin > form > .username > .error , .signin > form > .password > .error {
+    margin-left: 5%;
+    font-size: 1.1vw;
+    font-style: italic;
+    color: red;
+}
+
+.signin > form > .username > .error > p , .signin > form > .password > .error > p {
+    margin: 0;
+}
+
+.signin > form > .submit {
+    height: 4vh;
+    font-size: 1.2vw;
+    font-weight: bold;
+    background-color: white;
+    border: 1px solid #ff9312;
+    border-radius: 2vh;
+    transition: color, background-color ease .3s;
+}
+.signin > form > .submit:not(.disabled):hover {
+    color: white;
+    background-color: #ff9312;
+}
+
+.signin > form > .error {
+
+}
+
+.signin > form > .error > p {
+    font-style: italic;
+    color: red;
+    margin: 0;
+}

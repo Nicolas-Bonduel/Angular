@@ -4,6 +4,7 @@ import { Product } from './classes/product';
 import { PRODUCTS } from '../assets/products';
 
 import { ProductsService } from './services/products.service';
+import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +22,9 @@ export class AppComponent {
 
 
   /* --- Init --- */
-  constructor(private productService: ProductsService) {
+  constructor(
+    private productService: ProductsService,
+    private router: Router) {
 
     this.products = [];
 
@@ -38,6 +41,13 @@ export class AppComponent {
         if (!this.shops.includes(parsed_product.shop))
           this.shops.push(parsed_product.shop); 
       }
+    });
+
+    this.router.events.subscribe((event) => {
+      if (!(event instanceof NavigationEnd))
+        return;
+
+      //console.log(event);
     });
     
     // Parses product data

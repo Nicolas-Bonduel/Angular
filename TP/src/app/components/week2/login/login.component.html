@@ -1,0 +1,40 @@
+<div class="content">
+
+    <div *ngIf="!isLoggedIn" class="signin">
+    <!--<div class="signin">-->
+
+        <form [formGroup]="form_login" (ngSubmit)="signin()">
+
+            <div class="username">
+                <label for="username">Utilisateur</label>
+                <input formControlName="user" type="text" id="username" required>
+                <div *ngIf="form_login.get('user')?.errors" class="error">
+                    <p>Champ requis</p>
+                </div>
+            </div>
+
+            <div class="password">
+                <label for="password">Mot de passe</label>
+                <input formControlName="password" type="password" id="password" required>
+                <div *ngIf="form_login.get('password')?.errors" class="error">
+                    <p>Champ requis</p>
+                </div>
+            </div>
+
+            <button type="submit" class="submit" [class.disabled]="!form_login.valid" [disabled]="!form_login.valid">
+                Se connecter
+            </button>
+
+            <div [style.visibility]="login_failed? 'visible' : 'hidden'" class="error">
+                <p>L'utilisateur ou le mot de passe est incorrect</p>
+            </div>
+
+        </form>
+
+    </div>
+
+    <div *ngIf="isLoggedIn">
+        <p>Vous êtes déjà connecté!</p>
+    </div>
+
+</div>
