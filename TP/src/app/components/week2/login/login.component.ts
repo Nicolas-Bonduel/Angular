@@ -24,7 +24,8 @@ export class LoginComponent {
         Validators.required,
         Validators.minLength(4),
         Validators.maxLength(16),
-        this.noBlankCharsValidator()
+        this.noBlankCharsValidator(),
+        this.noSpecialCharsValidator()
       ]),
       password: new FormControl('', [Validators.required])
     });
@@ -38,6 +39,16 @@ export class LoginComponent {
         return null;
 
       return (/\s/).test(value) ? { blankChars: true } : null;
+    }
+  }
+
+  private noSpecialCharsValidator() : ValidatorFn {
+    return (control: AbstractControl): ValidationErrors | null => {
+      const value = control.value;
+      if (!value)
+        return null;
+
+      return (/[^A-Za-z0-9]/).test(value) ? { specialChars: true } : null;
     }
   }
 
