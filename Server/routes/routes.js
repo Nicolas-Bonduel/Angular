@@ -62,6 +62,13 @@ routes.get('/signin', checkToken, (request, response) => {
 
 });
 
+routes.post('/usernameIsAvailable', (req, res) => {
+    const { username } = req.body
+    const takenUsernames = ['kurofly', 'test', 'taken'];
+
+    res.status(200).json(takenUsernames.includes(username));
+});
+
 
 
 export default routes;
