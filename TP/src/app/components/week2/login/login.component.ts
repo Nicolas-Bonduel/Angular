@@ -35,7 +35,7 @@ export class LoginComponent {
       next: (data) => {
         console.log("logged in");
         this.login_failed = false;
-        if (localStorage.getItem('redirect_after_login') !== null) { console.log("redirect");
+        if (localStorage.getItem('redirect_after_login') !== null) {
           this.router.navigate([localStorage.getItem('redirect_after_login')]).then(() => window.location.reload());
         }
       },
